@@ -1,0 +1,52 @@
+name: Integration problem
+description: Connecting a client to the drop.media MCP server, or a tool, doesn't work as documented.
+labels: ["integration"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Redact before posting.** Remove API keys, OAuth tokens, `Authorization` headers, upload links
+        (`/api/v1/uploads/...`), signed file links (`/p/...?signature=...`) and any private file URLs or account details.
+        This issue is public. For security problems, use https://drop.media/contact instead.
+  - type: input
+    id: client
+    attributes:
+      label: Client and version
+      placeholder: e.g. Claude Code 2.x, Cursor 1.x, VS Code 1.x, claude.ai custom connector, ChatGPT
+    validations:
+      required: true
+  - type: dropdown
+    id: auth
+    attributes:
+      label: Authentication
+      options:
+        - OAuth
+        - API key (Authorization header)
+        - Not sure
+    validations:
+      required: true
+  - type: textarea
+    id: config
+    attributes:
+      label: Configuration (redacted)
+      description: The relevant MCP config or command, with any credentials replaced by placeholders.
+      render: json
+  - type: input
+    id: tool
+    attributes:
+      label: Tool involved (if any)
+      placeholder: e.g. create_upload_link
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened
+      description: Steps, the exact error message, and what you expected (link to the doc section if you have one).
+    validations:
+      required: true
+  - type: checkboxes
+    id: redacted
+    attributes:
+      label: Redaction
+      options:
+        - label: I removed credentials, upload links, signed links and private URLs from this issue.
+          required: true

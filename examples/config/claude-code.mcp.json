@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "drop": {
+      "type": "http",
+      "url": "https://drop.media/mcp",
+      "headers": {
+        "Authorization": "Bearer ${DROP_API_KEY}"
+      }
+    }
+  }
+}

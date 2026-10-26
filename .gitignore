@@ -1,0 +1,12 @@
+.DS_Store
+*.swp
+.idea/
+.vscode/*
+!.vscode/extensions.json
+.env
+.env.*
+*.pem
+key.pem
+mcp-registry-auth
+.mcpregistry_*
+__pycache__/

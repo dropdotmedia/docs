@@ -1,0 +1,19 @@
+{
+  "inputs": [
+    {
+      "type": "promptString",
+      "id": "drop-api-key",
+      "description": "drop.media API key",
+      "password": true
+    }
+  ],
+  "servers": {
+    "drop": {
+      "type": "http",
+      "url": "https://drop.media/mcp",
+      "headers": {
+        "Authorization": "Bearer ${input:drop-api-key}"
+      }
+    }
+  }
+}

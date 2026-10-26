@@ -1,0 +1,27 @@
+name: Documentation request
+description: Something is missing, unclear or wrong in these docs.
+labels: ["documentation"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please don't paste API keys, tokens, upload links, signed file links or private file URLs. This issue is public.
+  - type: input
+    id: page
+    attributes:
+      label: Page or section
+      placeholder: e.g. docs/clients.md#cursor
+  - type: textarea
+    id: request
+    attributes:
+      label: What should change?
+      description: What's wrong or missing, and (if you know) what's correct. Link to official client docs where relevant.
+    validations:
+      required: true
+  - type: checkboxes
+    id: redacted
+    attributes:
+      label: Redaction
+      options:
+        - label: This issue contains no credentials or private links.
+          required: true
