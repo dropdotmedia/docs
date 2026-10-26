@@ -1,4 +1,4 @@
-![dropmedia](https://cdn.drop.media/dropmedia/drop-github-readme-banner-paper.png)
+[![dropmedia](https://cdn.drop.media/dropmedia/drop-github-readme-banner-paper.png)](https://cdn.drop.media/dropmedia/drop-github-readme-banner-paper.png)
 
 
 # drop.media MCP
