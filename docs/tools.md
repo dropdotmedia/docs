@@ -221,7 +221,7 @@ Each link accepts **one** file and expires **15 minutes** after it's created. Tr
 | Argument | Type | Default | Notes |
 |---|---|---|---|
 | `search` | string | none | Words to look for in the file id, original name or AI prompt. Every word must appear; spaces, dashes, underscores and dots all separate words, so `q3 revenue` finds `q3-revenue.png`. |
-| `type` | `"all"` \| `"images"` \| `"pdfs"` \| `"generated"` | `"all"` | `generated` means images made with `generate_image` or on the website. |
+| `type` | `"all"` \| `"images"` \| `"video"` \| `"audio"` \| `"pdfs"` \| `"docs"` \| `"generated"` | `"all"` | `docs` means text, JSON and Office files. `generated` means images made with `generate_image` or on the website. |
 | `page` | integer ≥ 1 | `1` | |
 | `per_page` | integer 1–100 | `20` | |
 
