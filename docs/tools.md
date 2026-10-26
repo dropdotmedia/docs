@@ -22,7 +22,7 @@ Successful calls return a short **text** summary for the model and, except for `
 
 Expected failures (bad input, unknown id, file too large, daily limit reached and so on) come back as a normal tool result
 with `isError: true` and a message the agent can read and act on. They aren't protocol errors. Authentication problems
-happen before any tool runs, as HTTP `401` (no or invalid credential) or `402` (no active subscription).
+happen before any tool runs, as HTTP `401` (no or invalid credential) or `402` (email address not verified, or no active plan).
 
 ### The file object
 
@@ -214,13 +214,13 @@ Each link accepts **one** file and expires **15 minutes** after it's created. Tr
 
 ## `list_files`
 
-> List files in the drop.media library, newest first. Search matches names and AI prompts.
+> List files in the drop.media library, newest first. It is shared by all the user's AI tools, so look here for files they or another agent added before. Search matches every word in names and AI prompts.
 
 **Scope:** `files:read`
 
 | Argument | Type | Default | Notes |
 |---|---|---|---|
-| `search` | string | none | Matches the file id, original name or AI prompt (substring). |
+| `search` | string | none | Words to look for in the file id, original name or AI prompt. Every word must appear; spaces, dashes, underscores and dots all separate words, so `q3 revenue` finds `q3-revenue.png`. |
 | `type` | `"all"` \| `"images"` \| `"pdfs"` \| `"generated"` | `"all"` | `generated` means images made with `generate_image` or on the website. |
 | `page` | integer ≥ 1 | `1` | |
 | `per_page` | integer 1–100 | `20` | |

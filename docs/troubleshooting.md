@@ -17,10 +17,11 @@ Either no credential was sent or it isn't valid.
 - Claude Code: if a configured `Authorization` header is rejected, Claude Code doesn't fall back to OAuth. Remove the
   header, or fix the key.
 
-### `402` / "does not have an active subscription"
+### `402` / "Verify the email address" or "does not have an active subscription"
 
-The MCP server needs an active drop.media subscription. Check your plan at <https://drop.media/billing>. The OAuth
-consent page also refuses to connect accounts without one.
+The MCP server needs a verified email address (for the free plan) or an active subscription. Follow the link in the
+message to verify, or check your plan at <https://drop.media/billing>. The OAuth consent page also refuses to connect
+accounts without either.
 
 ### The sign-in page won't complete
 

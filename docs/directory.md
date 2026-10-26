@@ -34,8 +34,8 @@ in, approved by or verified by any other directory.
 > issues, documents and chat. Public files get a permanent CDN URL. Private files are only reachable through signed links
 > that expire within 7 days, and any file can be set to delete itself. Seven tools: upload_file, create_upload_link,
 > list_files, get_file, share_file, delete_file and generate_image. A remote Streamable HTTP server hosted by drop.media
-> at https://drop.media/mcp, with OAuth 2.1 (dynamic client registration) or API-key authentication. Requires a
-> drop.media subscription.
+> at https://drop.media/mcp, with OAuth 2.1 (dynamic client registration) or API-key authentication. Free plan with a
+> verified email address; a subscription adds bigger files, permanent links and image generation.
 
 **Facts directories usually ask for:**
 
@@ -45,7 +45,7 @@ in, approved by or verified by any other directory.
 | Transport | Streamable HTTP |
 | Authentication | OAuth 2.1 (PKCE S256, dynamic client registration) or `Authorization: Bearer <API key>` |
 | Hosting | Hosted by drop.media; there's no local package and no self-hosted option |
-| Pricing | Paid subscription required: <https://drop.media/pricing> |
+| Pricing | Free plan (verified email), paid plans for more: <https://drop.media/pricing> |
 | Docs | <https://github.com/dropdotmedia/docs> |
 | Support | <https://drop.media/contact> |
 | Privacy / terms | <https://drop.media/privacy> / <https://drop.media/terms> |
