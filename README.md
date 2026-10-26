@@ -1,3 +1,6 @@
+![dropmedia](https://cdn.drop.media/dropmedia/drop-github-readme-banner-paper.png)
+
+
 # drop.media MCP
 
 Give AI agents somewhere to upload files and get back links they can use.
