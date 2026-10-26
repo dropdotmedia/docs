@@ -3,7 +3,10 @@
 
 # drop.media MCP
 
-Give AI agents somewhere to upload files and get back links they can use.
+**Upload once. Find, use and share across your AI workflows.**
+
+drop.media is one media library for you and all your AI agents. Files added in Claude, ChatGPT, Cursor, the terminal or
+the website land in the same library, where every other agent you connect can find them, use them and share a link.
 
 [drop.media](https://drop.media) runs a remote [Model Context Protocol](https://modelcontextprotocol.io) server at
 `https://drop.media/mcp`. Once it's connected, your agent can host a screenshot, chart, PDF, recording or generated

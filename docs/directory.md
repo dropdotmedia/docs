@@ -21,13 +21,15 @@ in, approved by or verified by any other directory.
 
 **Name:** drop.media
 
-**Short description** (90 characters, the same as `server.json`):
+**Short description** (95 characters, the same as `server.json`):
 
-> Host files and AI-generated images on drop.media and get public or expiring private links.
+> One media library for all your AI agents: upload once, then find, use and share files anywhere.
 
 **Longer description:**
 
-> drop.media gives AI agents somewhere to put files. Agents upload screenshots, charts, PDFs, recordings and other
+> Upload once. Find, use and share across your AI workflows. drop.media is one media library shared by all your AI
+> agents: files added in one client (or on the website, the CLI or the API) can be found with list_files and reused in
+> every other. Agents upload screenshots, charts, PDFs, recordings and other
 > files, or generate images from a prompt, and get back a URL and a ready-made Markdown snippet for pull requests,
 > issues, documents and chat. Public files get a permanent CDN URL. Private files are only reachable through signed links
 > that expire within 7 days, and any file can be set to delete itself. Seven tools: upload_file, create_upload_link,
