@@ -21,19 +21,21 @@ in, approved by or verified by any other directory.
 
 **Name:** drop.media
 
-**Short description** (90 characters, the same as `server.json`):
+**Short description** (95 characters, the same as `server.json`):
 
-> Host files and AI-generated images on drop.media and get public or expiring private links.
+> One media library for all your AI agents: upload once, then find, use and share files anywhere.
 
 **Longer description:**
 
-> drop.media gives AI agents somewhere to put files. Agents upload screenshots, charts, PDFs, recordings and other
+> Upload once. Find, use and share across your AI workflows. drop.media is one media library shared by all your AI
+> agents: files added in one client (or on the website, the CLI or the API) can be found with list_files and reused in
+> every other. Agents upload screenshots, charts, PDFs, recordings and other
 > files, or generate images from a prompt, and get back a URL and a ready-made Markdown snippet for pull requests,
 > issues, documents and chat. Public files get a permanent CDN URL. Private files are only reachable through signed links
 > that expire within 7 days, and any file can be set to delete itself. Seven tools: upload_file, create_upload_link,
 > list_files, get_file, share_file, delete_file and generate_image. A remote Streamable HTTP server hosted by drop.media
-> at https://drop.media/mcp, with OAuth 2.1 (dynamic client registration) or API-key authentication. Requires a
-> drop.media subscription.
+> at https://drop.media/mcp, with OAuth 2.1 (dynamic client registration) or API-key authentication. Free plan with a
+> verified email address; a subscription adds bigger files, permanent links and image generation.
 
 **Facts directories usually ask for:**
 
@@ -43,7 +45,7 @@ in, approved by or verified by any other directory.
 | Transport | Streamable HTTP |
 | Authentication | OAuth 2.1 (PKCE S256, dynamic client registration) or `Authorization: Bearer <API key>` |
 | Hosting | Hosted by drop.media; there's no local package and no self-hosted option |
-| Pricing | Paid subscription required: <https://drop.media/pricing> |
+| Pricing | Free plan (verified email), paid plans for more: <https://drop.media/pricing> |
 | Docs | <https://github.com/dropdotmedia/docs> |
 | Support | <https://drop.media/contact> |
 | Privacy / terms | <https://drop.media/privacy> / <https://drop.media/terms> |

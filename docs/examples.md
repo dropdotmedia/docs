@@ -196,8 +196,8 @@ Showing 2 of 2 file(s), page 1:
 Deleted onboarding-step-1.
 ```
 
-Deletion is permanent. Public CDN URLs can keep working for a few minutes while caches clear. Search matches parts of
-names and prompts, so check every result before deleting it.
+Deletion is permanent. Public CDN URLs can keep working for a few minutes while caches clear. Search matches every word
+anywhere in names and prompts, so check every result before deleting it.
 
 ---
 
