@@ -1,7 +1,9 @@
 # Directory metadata
 
 Text and metadata for GitHub and MCP directories. Keep it in sync with the [README](../README.md) and
-[`server.json`](../server.json). Nothing here means drop.media is listed in, approved by or verified by any directory.
+[`server.json`](../server.json). drop.media is published in the
+[official MCP Registry](https://registry.modelcontextprotocol.io) as `media.drop/mcp`. That doesn't mean it's listed
+in, approved by or verified by any other directory.
 
 ## GitHub repository
 
@@ -56,9 +58,8 @@ It passes validation against that schema.
 
 Choices worth knowing about:
 
-- **`name: media.drop/mcp`** is the reverse-DNS form of `drop.media`. The registry only accepts it once the publisher has
-  proved control of `drop.media` through DNS or HTTP authentication (see below). It has **not** been published or
-  verified yet.
+- **`name: media.drop/mcp`** is the reverse-DNS form of `drop.media`. The registry accepted it after HTTP domain
+  verification: drop.media serves the public key at `https://drop.media/.well-known/mcp-registry-auth`.
 - **No `repository`.** That field is for the server's source code, which is private. This docs repository isn't the
   server's source.
 - **No `headers`.** OAuth-capable clients discover authentication from the server's `401` response. API keys are documented
@@ -66,22 +67,25 @@ Choices worth knowing about:
 - **`version: 1.0.0`** matches the version the server reports in `initialize`. Bump both together when tools change in
   a way directory users should know about.
 
-### Remaining steps to register (not done)
+### Publishing
 
-1. Install `mcp-publisher` (`brew install mcp-publisher` or a release binary; see the registry's
+`media.drop/mcp` version `1.0.0` was published on 2026-10-26 and is listed at
+`https://registry.modelcontextprotocol.io/v0.1/servers?search=media.drop/mcp`.
+
+To publish a new version:
+
+1. Bump `version` here and in the server's `initialize` response.
+2. Install `mcp-publisher` (`brew install mcp-publisher` or a release binary; see the registry's
    [publishing guide](https://github.com/modelcontextprotocol/registry/blob/main/docs/modelcontextprotocol-io/quickstart.mdx)).
-2. Prove control of `drop.media`, either way:
-   - **DNS:** generate a key pair and add `drop.media. IN TXT "v=MCPv1; k=ed25519; p=<public key>"` at the domain apex,
-     then run `mcp-publisher login dns --domain drop.media --private-key <private key>`.
-   - **HTTP:** serve `https://drop.media/.well-known/mcp-registry-auth` (this currently returns `404`), then run
-     `mcp-publisher login http --domain drop.media --private-key <private key>`.
-
-   See the registry's
+3. Run `mcp-publisher login http --domain drop.media --private-key <private key>`. The key is the ed25519 private
+   key for the public key drop.media serves at `/.well-known/mcp-registry-auth` (set as `MCP_REGISTRY_AUTH` in the
+   app, with a default in `config/drop.php`). Keep the private key out of this repository. If it's lost, generate a
+   new pair and serve the new public key; see the registry's
    [authentication guide](https://github.com/modelcontextprotocol/registry/blob/main/docs/modelcontextprotocol-io/authentication.mdx).
-   Keep the private key out of this repository.
-3. Run `mcp-publisher publish` from this directory. The registry doesn't check that the remote URL belongs to the
-   namespace owner, and each remote URL can only be registered under one name.
-4. Check the listing at `https://registry.modelcontextprotocol.io/v0.1/servers?search=media.drop/mcp`.
+4. Run `mcp-publisher publish` from this directory.
+
+The registry doesn't check that the remote URL belongs to the namespace owner, and each remote URL can only be
+registered under one name.
 
 The registry is in preview and its schema changes. Check the current schema version before publishing. Registry
 acceptance doesn't mean listing in any downstream directory (for example Claude's Connectors Directory or ChatGPT's
