@@ -32,7 +32,7 @@ drop.media's scopes are also called API key "abilities". The names are the same 
 | `images:generate` | Generate images with AI | `generate_image` |
 
 **Tools you don't have the scope for are hidden.** `tools/list` returns only the tools your credential allows. A
-read-only key sees just `list_files`, `get_file` and `share_file`. Each tool also declares its required scope in
+read-only key sees just `list_files`, `get_file`, `share_file` and `send_feedback`, which every credential gets. Each tool also declares its required scope in
 `securitySchemes`, so OAuth clients can request the right one.
 
 Grant the least you need. For example, an agent that only posts screenshots needs `files:write`. Add `files:read`

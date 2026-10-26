@@ -1,6 +1,6 @@
 # Tools reference
 
-drop.media's MCP server (`https://drop.media/mcp`, server name `drop.media`, version `1.0.0`) exposes seven tools.
+drop.media's MCP server (`https://drop.media/mcp`, server name `drop.media`, version `1.0.0`) exposes eight tools.
 `tools/list` returns only the tools your credential's scopes allow (see [authentication.md](authentication.md#2-scopes)).
 
 | Tool | Scope | `readOnlyHint` | `destructiveHint` | `openWorldHint` |
@@ -12,8 +12,10 @@ drop.media's MCP server (`https://drop.media/mcp`, server name `drop.media`, ver
 | [`share_file`](#share_file) | `files:read` | true | false | false |
 | [`delete_file`](#delete_file) | `files:delete` | false | **true** | false |
 | [`generate_image`](#generate_image) | `images:generate` | false | false | true |
+| [`send_feedback`](#send_feedback) | none | false | false | false |
 
 Each tool also declares `securitySchemes: [{"type": "oauth2", "scopes": ["<scope>"]}]`, which is mirrored in `_meta`.
+`send_feedback` needs no scope, so its `scopes` list is empty.
 
 ## Response format
 
@@ -367,6 +369,45 @@ midnight UTC. Each call creates and stores a new image.
 | `You have reached today's image generation limit. It resets at midnight UTC.` | The daily limit was reached. |
 | `The image generator rejected that prompt: ...` | The upstream model refused the prompt. |
 | `The image generator is busy. Please try again shortly.` / `Image generation failed. Please try again.` / `The image generator could not be reached. Please try again.` | A temporary upstream failure. Retry later. |
+
+---
+
+## `send_feedback`
+
+> Tell the drop.media team about a bug, an error message or tool description that confused you, a missing feature, or
+> something that worked well. A person reads every message. Describe what you tried and what happened; leave out secrets
+> and personal data.
+
+**Scope:** none. Every credential can send feedback.
+
+| Argument | Type | Default | Notes |
+|---|---|---|---|
+| `message` | string | required | 1–4000 characters. What happened, what you expected, and anything that would help. |
+| `kind` | `"bug"` \| `"confusing"` \| `"feature_request"` \| `"praise"` \| `"other"` | `"other"` | `confusing` covers unclear errors, descriptions or results. |
+| `tool` | string | none | The tool the feedback is about, for example `"upload_file"`. |
+| `client` | string | none | The app or agent sending it, for example `"Claude Code"`. |
+
+Feedback is stored with your account and emailed to the drop.media team. Each account can send 20 messages an hour.
+
+**Example input:**
+
+```json
+{
+  "kind": "confusing",
+  "tool": "share_file",
+  "client": "Claude Code",
+  "message": "I passed ttl \"2 days\" and got an error. The description could list the accepted formats."
+}
+```
+
+**Example result:**
+
+- text: `Thanks, your feedback was sent to the drop.media team.`
+- structured content: `{"id": 42, "received_at": "2026-10-26T09:30:00+00:00"}`
+
+**Errors:** `The message must be between 1 and 4000 characters.`,
+`kind must be one of: bug, confusing, feature_request, praise, other.` and, past the hourly limit,
+`Thanks, but that is a lot of feedback for one hour. Please try again later.`
 
 ---
 
