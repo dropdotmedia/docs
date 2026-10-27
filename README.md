@@ -1,17 +1,21 @@
-![dropmedia](https://cdn.drop.media/dropmedia/drop-github-readme-banner-paper.png)
-
+![https://cdn.drop.media/dropmedia/drop-github-readme-banner-paper.png
+](https://cdn.drop.media/dropmedia/drop-github-social-paper.png)
 
 # drop.media MCP
 
-Give AI agents somewhere to upload files and get back links they can use.
+**Upload once. Find, use and share across your AI workflows.**
+
+drop.media is one media library for you and all your AI agents. Files added in Claude, ChatGPT, Cursor, the terminal or
+the website land in the same library, where every other agent you connect can find them, use them and share a link.
 
 [drop.media](https://drop.media) runs a remote [Model Context Protocol](https://modelcontextprotocol.io) server at
 `https://drop.media/mcp`. Once it's connected, your agent can host a screenshot, chart, PDF, recording or generated
 image and get back a URL and a ready-made Markdown snippet to paste into a pull request, issue, document or chat message.
 
 > [!NOTE]
-> drop.media is a hosted commercial service. You need a drop.media account with an active subscription to connect,
-> and the server is hosted by drop.media. This repository holds documentation and example configuration only. It does
+> drop.media is a hosted commercial service, hosted by drop.media. You need a drop.media account with a verified email
+> address to connect: the free plan includes the media library, the MCP server, the REST API and the CLI, and a
+> subscription adds bigger files, permanent links, more storage and image generation. This repository holds documentation and example configuration only. It does
 > **not** contain a server you can run yourself. See [current pricing](https://drop.media/pricing).
 
 ## Quick start
@@ -40,7 +44,9 @@ Setup for Cursor, VS Code, Claude (web and desktop) and ChatGPT is in [docs/clie
 - **Short-lived files.** Set `expires_in` (for example `7d`) and the file deletes itself.
 - **Generated images.** Create an image from a text prompt and host it in one step. The prompt and model are saved
   with the file.
-- **Library housekeeping.** List, search, look up and delete files you uploaded earlier.
+- **Finding files from anywhere.** Everything you or any connected agent uploads lands in one library. Ask for "the Q3
+  revenue chart" and `list_files` finds `q3-revenue.png`, whichever client or person uploaded it.
+- **Library housekeeping.** Look up and delete files you uploaded earlier.
 
 ## Endpoint and transport
 

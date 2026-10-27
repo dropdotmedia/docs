@@ -9,16 +9,17 @@ drop.media's MCP server at `https://drop.media/mcp` accepts two kinds of credent
 | Lifetime | 1-hour access token, refreshed automatically (refresh token valid for 90 days, rotated on each use) | Until revoked |
 | Sent as | `Authorization: Bearer <access token>` (handled by the client) | `Authorization: Bearer <API key>` |
 
-Both are checked the same way, and both are subject to the same scopes and subscription requirement.
+Both are checked the same way, and both are subject to the same scopes and plan limits.
 
-## 1. Account and subscription
+## 1. Account and plan
 
 1. Create an account at <https://drop.media/register>.
-2. Subscribe. The MCP server, API keys, REST API and CLI need an active subscription; see
+2. Verify your email address. That starts the free plan (verified email; 10 MB files, 50 uploads in total, 500 MB of storage, files kept for up to 30 days, no image generation), which includes the media library, the MCP server, API keys, the
+   REST API and the CLI. Subscribe for bigger files, permanent links, more storage and image generation; see
    [pricing](https://drop.media/pricing).
 
-Without an active subscription, `/mcp` responds with HTTP `402` and the message *"This drop.media account does not have an
-active subscription, which the MCP server requires."* The OAuth consent page also won't let you approve a connection.
+Until the email address is verified, `/mcp` responds with HTTP `402` and a message with the link to verify it. The OAuth
+consent page also won't let you approve a connection.
 
 ## 2. Scopes
 
