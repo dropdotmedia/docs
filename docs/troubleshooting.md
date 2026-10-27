@@ -59,6 +59,7 @@ and retry.
 | `list_files`, `get_file`, `share_file` | `files:read` |
 | `delete_file` | `files:delete` |
 | `generate_image` | `images:generate` |
+| `send_feedback` | none; every credential sees it |
 
 API key abilities can't be changed after the key is created. Create a new key with the right abilities, update your
 client and revoke the old one. For OAuth, revoke the connection and connect again. Some clients also cache the tool list

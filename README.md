@@ -82,6 +82,7 @@ Both use the same four scopes (also called abilities): `files:read`, `files:writ
 | [`share_file`](docs/tools.md#share_file) | Get a link: a signed, expiring link for private files, or the permanent URL for public ones | `files:read` | No |
 | [`delete_file`](docs/tools.md#delete_file) | Delete a file permanently | `files:delete` | **Deletes** |
 | [`generate_image`](docs/tools.md#generate_image) | Generate an image from a prompt and host it | `images:generate` | Creates a file |
+| [`send_feedback`](docs/tools.md#send_feedback) | Tell the drop.media team about a bug, something confusing or a missing feature | none (every credential) | Sends a message |
 
 Full arguments, responses and errors: [docs/tools.md](docs/tools.md). Worked examples: [docs/examples.md](docs/examples.md).
 

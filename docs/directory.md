@@ -32,8 +32,8 @@ in, approved by or verified by any other directory.
 > every other. Agents upload screenshots, charts, PDFs, recordings and other
 > files, or generate images from a prompt, and get back a URL and a ready-made Markdown snippet for pull requests,
 > issues, documents and chat. Public files get a permanent CDN URL. Private files are only reachable through signed links
-> that expire within 7 days, and any file can be set to delete itself. Seven tools: upload_file, create_upload_link,
-> list_files, get_file, share_file, delete_file and generate_image. A remote Streamable HTTP server hosted by drop.media
+> that expire within 7 days, and any file can be set to delete itself. Eight tools: upload_file, create_upload_link,
+> list_files, get_file, share_file, delete_file, generate_image and send_feedback. A remote Streamable HTTP server hosted by drop.media
 > at https://drop.media/mcp, with OAuth 2.1 (dynamic client registration) or API-key authentication. Free plan with a
 > verified email address; a subscription adds bigger files, permanent links and image generation.
 
